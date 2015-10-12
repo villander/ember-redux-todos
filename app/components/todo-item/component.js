@@ -14,16 +14,10 @@ export default Ember.Component.extend({
       this.set('isEditing', true);
     },
 
-    removeTodo() {
-      var todo = this.get('todo');
-
-      todo.deleteRecord();
-      todo.save();
-    },
-
-    save() {
+    save(title) {
       this.set('isEditing', false);
-      this.get('todo').save();
+
+      this.attrs.editTodo(title);
     }
-  },
+  }
 });

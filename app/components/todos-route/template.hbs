@@ -5,15 +5,17 @@
             class='new-todo'
             placeholder='What needs to be done?'
             value=newTitle
-            enter='createTodo'}}
+            key-press='addingTodo'
+            enter='addTodo'}}
   </header>
 
   <section class='main'>
     {{todos-list todos=filtered class='todo-list'}}
 
-    {{input type='checkbox'
+    <input type='checkbox'
             class='toggle-all'
-            checked=allAreDone}}
+            checked={{allAreDone}}
+            onchange={{action 'completeAll'}}>
   </section>
 
   <footer class='footer'>
